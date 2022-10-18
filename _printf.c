@@ -3,6 +3,7 @@
 /**
  * _printf - a Printf function
  * @format: a character string.
+ *
  * Return: printed_chars.
  */
 
@@ -42,4 +43,20 @@ int _printf(const char *format, ...)
 	print_buffer(buffer, &buff_ind);
 	va_end(list);
 	return (printed_chars);
+}
+
+/**
+ * print_buffer - Prints the contents of the buffer.
+ * @buffer: Array of chars
+ * @buff_ind: Index at which to add next char.
+ *
+ * Return: nothing.
+ */
+
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }
